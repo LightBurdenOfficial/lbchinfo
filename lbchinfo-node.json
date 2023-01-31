@@ -1,6 +1,6 @@
 {
   "version": "0.0.1",
-  "chain": "mainnet",
+  "chain": "testnet",
   "services": [
     "db",
     "p2p",
@@ -14,12 +14,12 @@
   "servicesConfig": {
     "db": {
       "mysql": {
-        "uri": "mysql://lbch@localhost/lbch_mainnet"
+        "uri": "mysql://root:L6v%2338tkekaH@localhost/lbch_explorer"
       },
       "rpc": {
         "protocol": "http",
         "host": "localhost",
-        "port": 3889,
+        "port": 18332,
         "user": "user",
         "password": "password"
       }
@@ -30,7 +30,7 @@
           "ip": {
             "v4": "127.0.0.1"
           },
-          "port": 3888
+          "port": 2325
         }
       ]
     },
