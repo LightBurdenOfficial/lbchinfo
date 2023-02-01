@@ -57,7 +57,7 @@ class HeaderService extends Service {
 
   _adjustTipBackToCheckpoint() {
     this.#originalHeight = this.#tip.height
-    if (this.#tip.height < 2000) {
+    if (this.#tip.height < 1) {
       this.#tip.height = 0
       this.#tip.hash = this.#genesisHeader.hash
     } else {
@@ -133,6 +133,12 @@ class HeaderService extends Service {
     this.logger.debug('Header Service: new block:', block.hash.toString('hex'))
     let header = new this.#Header({hash: block.header.hash, ...block.header})
     this._onHeader(header)
+      function waitforheader(milisec) {
+          return new Promise(resolve => {
+              setTimeout(() => { resolve('') }, milisec);
+          })
+      }
+    await waitforheader(1000)
     await header.save()
     await this.node.updateServiceTip(this.name, this.#tip)
   }
